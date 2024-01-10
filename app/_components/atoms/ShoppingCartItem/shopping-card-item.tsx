@@ -1,4 +1,6 @@
 import { ShoppingCartItem } from "@/app/_lib/definitions";
+import { Button } from "@nextui-org/button";
+import { TrashIcon } from "@heroicons/react/16/solid";
 
 export default function ShoppingCardItem({
   item,
@@ -15,7 +17,16 @@ export default function ShoppingCardItem({
       <div className="ml-auto">
         ${((item.price * item.quantity) / 100).toFixed(2)}
       </div>
-      <button onClick={() => removeItem(item)}>Remove</button>
+      <Button
+        size="sm"
+        isIconOnly
+        // color="primary"
+        variant="light"
+        radius="full"
+        onClick={() => removeItem(item)}
+      >
+        <TrashIcon className="w-3" />
+      </Button>
     </div>
   );
 }

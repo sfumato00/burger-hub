@@ -2,7 +2,7 @@ import { Product } from "@/app/_lib/definitions";
 
 export async function fetchProductData() {
   const productData: Product[] = require("@/app/_lib/data-placeholder");
-  await delay(300);
+  // await delay(300);
   return productData;
 }
 

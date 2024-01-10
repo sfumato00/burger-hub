@@ -1,5 +1,5 @@
 import { useCart } from "@/app/_context/providers/shopping-cart-context";
-import ShoppingCardItem from "@/app/_components/molecules/ShoppingCartItem/shopping-card-item";
+import ShoppingCardItem from "@/app/_components/atoms/ShoppingCartItem/shopping-card-item";
 import { ShoppingCartItem } from "@/app/_lib/definitions";
 
 export default function ShoppingCart() {
@@ -11,7 +11,7 @@ export default function ShoppingCart() {
 
   return (
     <div className="justify-center mx-auto gap-4 place-center flex-wrap w-96">
-      <h1>Shopping Cart</h1>
+      <h1 className="text-xl font-bold">Shopping Cart</h1>
       <div>
         {items.map((item, index) => (
           <ShoppingCardItem key={index} item={item} removeItem={handleRemove} />

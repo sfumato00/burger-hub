@@ -1,8 +1,8 @@
 "use client";
 
-import { fetchProductData } from "@/app/_lib/data";
 import ProductCardContainer from "@/app/_components/molecules/ProductCardContainer/product-card-container";
 import ShoppingCart from "@/app/_components/_deprecated/ShoppingCart/shopping-cart";
+import { fetchProductData } from "@/app/_lib/data";
 
 export default async function HelloPage() {
   const products = await fetchProductData();
