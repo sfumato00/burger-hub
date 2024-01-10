@@ -7,9 +7,9 @@ import {
   NavbarContent,
   NavbarItem,
 } from "@nextui-org/react";
+import ShoppingCardBadge from "@/app/_components/atoms/ShoppingCartBadge/shopping-card-badge";
 import { Input } from "@nextui-org/input";
 import { SearchIcon } from "@/app/_components/atoms/SearchIcon/search-icon";
-import ShoppingCardBadge from "@/app/_components/atoms/ShoppingCartBadge/shopping-card-badge";
 
 export default function GlobalNavBar() {
   return (

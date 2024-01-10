@@ -9,7 +9,6 @@ import { ShoppingCartItem } from "@/app/_lib/definitions";
 export default function ShoppingCardBadge() {
   const { items, setItems } = useCart();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  // const [modalPlacement, setModalPlacement] = useState("auto");
 
   const totalItems = items.reduce(
     (accumulator, currentValue) => accumulator + currentValue.quantity,
@@ -29,7 +28,7 @@ export default function ShoppingCardBadge() {
         size="lg"
         onPress={onOpen}
       >
-        <ShoppingCartIcon className="w-6" />
+        <ShoppingCartIcon width={24} />
       </Button>
       <ShoppingCartModal
         items={items}
