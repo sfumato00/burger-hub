@@ -5,6 +5,7 @@ import {
   ModalBody,
   ModalContent,
   ModalFooter,
+  ModalHeader,
 } from "@nextui-org/react";
 import React from "react";
 import ShoppingCardItem from "@/app/_components/atoms/ShoppingCartItem/shopping-card-item";
@@ -25,6 +26,9 @@ export default function ShoppingCartModal({
       <ModalContent>
         {(onClose) => (
           <>
+            <ModalHeader className="flex flex-col gap-1">
+              Shopping Cart
+            </ModalHeader>
             <ModalBody>
               {items.map((item, index) => (
                 <ShoppingCardItem
