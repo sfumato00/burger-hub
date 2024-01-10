@@ -42,7 +42,12 @@ export default function ShoppingCartModal({
               <Button color="danger" variant="light" onPress={onClose}>
                 Close
               </Button>
-              <Button color="primary" onPress={onClose}>
+              <Button
+                color="primary"
+                onPress={onClose}
+                variant="light"
+                className="font-bold"
+              >
                 Checkout
               </Button>
             </ModalFooter>
