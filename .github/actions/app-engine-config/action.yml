@@ -1,0 +1,19 @@
+name: "Create app engine config"
+description: "Create app engine config"
+inputs:
+  service_id:
+    description: 'The service id to be used for app engine config'
+    required: true
+  filename:
+    description: 'The name of the config file'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: create config file
+      shell: bash
+      run: ./.github/actions/app-engine-config/generate-config.sh
+      env:
+        service_name: ${{ inputs.service_id }}
+        filename: ${{ inputs.filename }}

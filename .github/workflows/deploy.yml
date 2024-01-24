@@ -1,0 +1,72 @@
+on:
+  workflow_call:
+    inputs:
+      # the environment name that will be used for the deployment
+      env:
+        type: string
+        required: true
+      # the environment url
+      url:
+        type: string
+        required: true
+      # version of the app to deploy, if not specified, the ref will be used
+      version:
+        type: string
+        required: false
+      # Google Cloud App Engine service id that will be used for the deployment
+      service_id:
+        type: string
+        required: true
+    secrets:
+      # 'projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
+      WORKLOAD_IDENTITY_PROVIDER:
+        required: true
+      # 'my-service-account@my-project.iam.gserviceaccount.com'
+      SERVICE_ACCOUNT:
+        required: true
+      GCP_PROJECT_ID:
+        required: true
+
+jobs:
+  deploy:
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ inputs.env }}
+      url: ${{ inputs.url }}
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.version || github.ref }}
+
+      - uses: pnpm/action-setup@v2
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Generate app engine config
+        uses: ./.github/actions/app-engine-config
+        with:
+          filename: ${{ inputs.env }}.yml
+          service_id: ${{ inputs.service_id }}
+
+      - name: Deploy to app engine
+        uses: Panenco/gcp-deploy-action@v2
+        with:
+          workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.SERVICE_ACCOUNT }}
+          service_id: ${{ inputs.service_id }}
+          project_id: ${{ vars.GCP_PROJECT_ID }}
+          app_yaml_path: ${{ inputs.env }}.yml
