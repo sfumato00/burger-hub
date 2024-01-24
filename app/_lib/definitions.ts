@@ -6,16 +6,6 @@ export interface Product {
   slug?: string;
 }
 
-export interface ProductDetail extends Product {
-  href: string;
-}
-
-export interface ProductGroup {
-  id: string;
-  name: string;
-  products: string[];
-}
-
 export interface ShoppingCartItem extends Product {
   quantity: number;
 }

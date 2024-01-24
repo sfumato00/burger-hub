@@ -5,8 +5,6 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "*.unsplash.com",
-        // port: "",
-        // pathname: "/my-bucket/**",
       },
     ],
   },
