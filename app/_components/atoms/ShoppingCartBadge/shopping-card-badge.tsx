@@ -7,7 +7,7 @@ import ShoppingCartModal from "@/app/_components/molecules/ShoppingCartModal/sho
 import { ShoppingCartItem } from "@/app/_lib/definitions";
 
 export default function ShoppingCardBadge() {
-  const { items, setItems } = useCart();
+  const { isCartOpen, items, setItems } = useCart();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   const totalItems = items.reduce(
@@ -17,25 +17,31 @@ export default function ShoppingCardBadge() {
   const handleRemove = (itemToRemove: ShoppingCartItem) => {
     setItems((items) => items.filter((item) => item.id !== itemToRemove.id));
   };
-
   return (
-    <Badge content={`${totalItems}`} shape="circle" color="primary">
-      <Button
-        radius="full"
-        isIconOnly
-        aria-label={`${totalItems} items in the cart`}
-        variant="light"
-        size="lg"
-        onPress={onOpen}
+    <div>
+      <Badge
+        content={`${totalItems}`}
+        shape="circle"
+        color="primary"
+        isInvisible={!isCartOpen}
       >
-        <ShoppingCartIcon width={24} />
-      </Button>
-      <ShoppingCartModal
-        items={items}
-        isOpen={isOpen}
-        onOpenChange={onOpenChange}
-        handleRemove={handleRemove}
-      />
-    </Badge>
+        <Button
+          radius="full"
+          isIconOnly
+          aria-label={`${totalItems} items in the cart`}
+          variant="light"
+          size="lg"
+          onPress={onOpen}
+        >
+          <ShoppingCartIcon width={24} />
+        </Button>
+        <ShoppingCartModal
+          items={items}
+          isOpen={isOpen}
+          onOpenChange={onOpenChange}
+          handleRemove={handleRemove}
+        />
+      </Badge>
+    </div>
   );
 }
