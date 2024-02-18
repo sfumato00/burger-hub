@@ -1,0 +1,46 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Burger A",
+      "image": "https://images.unsplash.com/photo-1596662951482-0c4ba74a6df6?&w=900&h=900",
+      "slug": "burger-a",
+      "price": 499
+    },
+    {
+      "id": "2",
+      "name": "Black Burger",
+      "image": "https://images.unsplash.com/photo-1582196016295-f8c8bd4b3a99?w=900&h=900",
+      "slug": "black-burger",
+      "price": 599
+    },
+    {
+      "id": "3",
+      "name": "Fries with Ketchup",
+      "image": "https://images.unsplash.com/photo-1550259114-ad7188f0a967?w=900&h=900",
+      "slug": "fries-n-ketchup",
+      "price": 699
+    },
+    {
+      "id": "4",
+      "name": "Bacon & Egg",
+      "image": "https://images.unsplash.com/photo-1601894087104-0c18bc34dbd6?w=900&h=900",
+      "slug": "bacon-n-egg",
+      "price": 799
+    },
+    {
+      "id": "5",
+      "name": "Mushroom Burger",
+      "image": "https://images.unsplash.com/photo-1549611016-3a70d82b5040?w=900&h=900",
+      "slug": "mushroom-burger",
+      "price": 799
+    },
+    {
+      "id": "6",
+      "name": "Chicken Sandwich",
+      "image": "https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=900&h=900",
+      "slug": "chicken-sandwich",
+      "price": 799
+    }
+  ]
+}
