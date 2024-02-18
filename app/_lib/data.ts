@@ -1,9 +1,7 @@
-import { Product } from "@/app/_lib/definitions";
-
 export async function fetchProductData() {
   try {
     const response = await fetch(
-      "https://sfumato00.github.io/json/data/products.json",
+      "https://sfumato00.github.io/burger-hub/data/products.json",
       { next: { revalidate: 3600 } },
     );
 
