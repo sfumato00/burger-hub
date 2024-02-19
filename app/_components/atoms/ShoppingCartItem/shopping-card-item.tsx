@@ -1,4 +1,4 @@
-import { ShoppingCartItem } from "@/app/_lib/definitions";
+import { ShoppingCartItem } from "@/lib/definitions";
 import { Button } from "@nextui-org/button";
 import { TrashIcon } from "@heroicons/react/16/solid";
 import Image, { ImageLoaderProps } from "next/image";

@@ -4,7 +4,7 @@ import { Badge, Button, useDisclosure } from "@nextui-org/react";
 import { ShoppingCartIcon } from "@heroicons/react/24/solid";
 import { useCart } from "@/app/_context/shopping-cart-context";
 import ShoppingCartModal from "@/app/_components/molecules/ShoppingCartModal/shopping-cart-modal";
-import { ShoppingCartItem } from "@/app/_lib/definitions";
+import { ShoppingCartItem } from "@/lib/definitions";
 
 export default function ShoppingCardBadge() {
   const { isCartOpen, items, setItems } = useCart();
