@@ -1,4 +1,4 @@
-import { Product } from "@/app/_lib/definitions";
+import { Product } from "@/lib/definitions";
 import { Card, CardBody, CardFooter } from "@nextui-org/react";
 import Link from "next/link";
 import Image, { ImageLoaderProps } from "next/image";

@@ -1,4 +1,4 @@
-import { ShoppingCartItem } from "@/app/_lib/definitions";
+import { ShoppingCartItem } from "@/lib/definitions";
 import {
   Button,
   Modal,

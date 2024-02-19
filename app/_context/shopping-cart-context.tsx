@@ -7,7 +7,7 @@ import React, {
   useEffect,
   useState,
 } from "react";
-import { ShoppingCartItem } from "@/app/_lib/definitions";
+import { ShoppingCartItem } from "@/lib/definitions";
 
 interface ShoppingCartProviderProps {
   children: ReactNode;

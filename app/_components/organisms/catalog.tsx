@@ -1,6 +1,6 @@
-import { fetchProductData } from "@/app/_lib/data";
+import { fetchProductData } from "@/lib/data";
 import ProductCardContainer from "@/app/_components/molecules/ProductCardContainer/product-card-container";
-import { Product } from "@/app/_lib/definitions";
+import { Product } from "@/lib/definitions";
 
 export default async function Catalog() {
   const products: Product[] = await fetchProductData();

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { Product } from "@/app/_lib/definitions";
+import { Product } from "@/lib/definitions";
 import ProductCard from "@/app/_components/molecules/ProductCard/product-card";
 import { useCart } from "@/app/_context/shopping-cart-context";
 
