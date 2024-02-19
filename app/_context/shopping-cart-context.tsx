@@ -20,12 +20,13 @@ interface ShoppingCartContextProps {
   setItems: React.Dispatch<React.SetStateAction<ShoppingCartItem[]>>;
 }
 
-const ShoppingCartContext = createContext<ShoppingCartContextProps>({
-  isCartOpen: false,
-  items: [],
-  setCartOpen: () => {},
-  setItems: () => {},
-});
+const ShoppingCartContext: React.Context<ShoppingCartContextProps> =
+  createContext<ShoppingCartContextProps>({
+    isCartOpen: false,
+    items: [],
+    setCartOpen: () => {},
+    setItems: () => {},
+  });
 
 export const ShoppingCartProvider: React.FC<ShoppingCartProviderProps> = ({
   children,

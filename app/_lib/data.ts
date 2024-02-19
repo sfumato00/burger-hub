@@ -1,14 +1,14 @@
 export async function fetchProductData() {
-  try {
-    const response = await fetch(
-      "https://sfumato00.github.io/burger-hub/data/products.json",
-      { next: { revalidate: 3600 } },
-    );
-
-    const { products } = await response.json();
-
-    return products;
-  } catch (error) {
-    console.error("Error:", error);
+  const apiUrl = process.env.BURGER_API;
+  if (!apiUrl) {
+    throw new Error("Burger API is url is not set in environment variable");
   }
+
+  const response = await fetch(apiUrl, {
+    next: { revalidate: 300 },
+  });
+
+  const { products } = await response.json();
+
+  return products;
 }

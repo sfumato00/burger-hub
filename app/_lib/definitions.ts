@@ -1,11 +1,15 @@
-export interface Product {
+export type Product = {
   id: string;
   name: string;
   image: string;
   price: number;
-  slug?: string;
-}
+  slug: string;
+};
 
-export interface ShoppingCartItem extends Product {
+export type ProductDetail = Product & {
+  details: string;
+};
+
+export type ShoppingCartItem = Product & {
   quantity: number;
-}
+};
