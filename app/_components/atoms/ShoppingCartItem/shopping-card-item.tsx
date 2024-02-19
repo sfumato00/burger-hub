@@ -1,7 +1,13 @@
 import { ShoppingCartItem } from "@/app/_lib/definitions";
 import { Button } from "@nextui-org/button";
 import { TrashIcon } from "@heroicons/react/16/solid";
-import Image from "next/image";
+import Image, { ImageLoaderProps } from "next/image";
+
+const cartImageLoader = ({ src, width, quality }: ImageLoaderProps): string => {
+  return `https://images.unsplash.com/${src}?w=${width}&h=${width}&q=${
+    quality || 80
+  }&fit=crop`;
+};
 
 export default function ShoppingCardItem({
   item,
@@ -13,10 +19,11 @@ export default function ShoppingCardItem({
   return (
     <div className="flex items-center gap-4 mb-3">
       <Image
+        loader={cartImageLoader}
         src={item.image}
         alt={item.name}
-        height={40}
-        width={40}
+        height={48}
+        width={48}
         className="rounded-full"
       />
       <div>

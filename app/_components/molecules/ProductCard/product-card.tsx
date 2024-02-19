@@ -1,10 +1,16 @@
 import { Product } from "@/app/_lib/definitions";
 import { Card, CardBody, CardFooter } from "@nextui-org/react";
 import Link from "next/link";
-import Image from "next/image";
+import Image, { ImageLoaderProps } from "next/image";
 import { Button } from "@nextui-org/button";
 import { Spacer } from "@nextui-org/spacer";
 import { CardHeader } from "@nextui-org/card";
+
+const imageLoader = ({ src, width, quality }: ImageLoaderProps): string => {
+  return `https://images.unsplash.com/${src}?w=${width}&h=${width}&q=${
+    quality || 75
+  }&fit=crop`;
+};
 
 export default function ProductCard({
   product,
@@ -26,6 +32,7 @@ export default function ProductCard({
           <Link href="#">
             <div>
               <Image
+                loader={imageLoader}
                 src={product.image}
                 alt={product.name}
                 height={500}
