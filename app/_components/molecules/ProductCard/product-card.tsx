@@ -29,7 +29,7 @@ export default function ProductCard({
     <div>
       <Card fullWidth>
         <CardHeader className="py-0 px-0">
-          <Link href="#">
+          <Link href={`/${product.slug}`}>
             <div>
               <Image
                 loader={imageLoader}
