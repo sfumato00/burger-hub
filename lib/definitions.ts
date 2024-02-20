@@ -4,10 +4,8 @@ export type Product = {
   image: string;
   price: number;
   slug: string;
-};
-
-export type ProductDetail = Product & {
-  details: string;
+  description: string;
+  calorie: number;
 };
 
 export type ShoppingCartItem = Product & {

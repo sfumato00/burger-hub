@@ -19,8 +19,7 @@ export default function ShoppingCardItem({
   return (
     <div className="flex items-center gap-4 mb-3">
       <Image
-        loader={cartImageLoader}
-        src={item.image}
+        src={`https://images.unsplash.com/${item.image}?w=48&h=48&q=80&fit=crop`}
         alt={item.name}
         height={48}
         width={48}

@@ -1,4 +1,4 @@
-import { Product, ProductDetail } from "@/lib/definitions";
+import { Product } from "@/lib/definitions";
 import { isNumber } from "@/lib/utils";
 import { cache } from "react";
 
@@ -29,21 +29,9 @@ export const fetchProducts = async () => {
   return json as Product[];
 };
 
-export const fetchProductDetails = async () => {
-  const response = await fetch(burgerHupEndpoint, {
-    next: { revalidate: revalidateFrequency },
-  });
-
-  if (!response.ok) {
-    throw new Error("Failed to fetch product details.");
-  }
-
-  const json = await response.json();
-  return json as ProductDetail[];
-};
-
-export const getProductDetail = cache(async (slug: string) => {
-  const products = await fetchProductDetails();
+export const getProduct = cache(async (slug: string) => {
+  "use server";
+  const products = await fetchProducts();
   const product = products.find((p) => p.slug == slug);
   if (!product) {
     throw new Error(`Failed to fetch (${slug})`);

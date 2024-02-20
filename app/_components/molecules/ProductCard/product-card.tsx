@@ -1,16 +1,10 @@
 import { Product } from "@/lib/definitions";
 import { Card, CardBody, CardFooter } from "@nextui-org/react";
 import Link from "next/link";
-import Image, { ImageLoaderProps } from "next/image";
+import Image from "next/image";
 import { Button } from "@nextui-org/button";
 import { Spacer } from "@nextui-org/spacer";
 import { CardHeader } from "@nextui-org/card";
-
-const imageLoader = ({ src, width, quality }: ImageLoaderProps): string => {
-  return `https://images.unsplash.com/${src}?w=${width}&h=${width}&q=${
-    quality || 75
-  }&fit=crop`;
-};
 
 export default function ProductCard({
   product,
@@ -30,15 +24,12 @@ export default function ProductCard({
       <Card fullWidth>
         <CardHeader className="py-0 px-0">
           <Link href={`/${product.slug}`}>
-            <div>
-              <Image
-                loader={imageLoader}
-                src={product.image}
-                alt={product.name}
-                height={500}
-                width={500}
-              />
-            </div>
+            <Image
+              src={`https://images.unsplash.com/${product.image}?w=800&h=800&q=80&fit=crop`}
+              alt={product.name}
+              height={800}
+              width={800}
+            />
           </Link>
         </CardHeader>
         <CardBody>
@@ -46,35 +37,37 @@ export default function ProductCard({
           <small className="text-default-500 font-bold">
             ${(product.price / 100).toFixed(2)}
           </small>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p className="max-h-32 overflow-hidden line-clamp-3">
+            {product.description}
+          </p>
         </CardBody>
-        <CardFooter className="flex-col">
-          <div className="flex">
+        <CardFooter className="grid grid-cols-1 max-w-64 mx-auto">
+          <div className="flex justify-around align-middle items-center">
             <Button
               onClick={onDecrement}
               variant="faded"
               radius="full"
               color="primary"
               isIconOnly
-              size="sm"
+              size="lg"
             >
               -
             </Button>
-            <span className="w-10 text-center mx-3">{quantity}</span>
+            <span className="w-10 text-center">{quantity}</span>
             <Button
               onClick={onIncrement}
               variant="faded"
               radius="full"
               color="primary"
               isIconOnly
-              size="sm"
+              size="lg"
             >
               +
             </Button>
           </div>
-          <Spacer y={2} />
+          <Spacer y={5} />
           <Button
-            size="sm"
+            // size="lg"
             radius="full"
             variant="shadow"
             className="font-bold"
